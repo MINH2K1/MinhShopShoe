@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopShoe.Domain\ShopShoe.Domain.csproj" />
+    <ProjectReference Include="..\ShopShoe.Infastruction\ShopShoe.Infastruction.csproj" />
+    <ProjectReference Include="..\ShopShoe.Utilities\ShopShoe.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>
