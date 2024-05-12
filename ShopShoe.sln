@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopShoe.Application", "Sho
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopShoe.Utilities", "ShopShoe.Utilities\ShopShoe.Utilities.csproj", "{C219FA95-2B5E-4C2F-9085-6955BF153F2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopShoe.Application.UnitTest", "ShopShoe.Application.UnitTest\ShopShoe.Application.UnitTest.csproj", "{C46150C0-5777-42CC-B442-03E4DE45D719}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{C219FA95-2B5E-4C2F-9085-6955BF153F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C219FA95-2B5E-4C2F-9085-6955BF153F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C219FA95-2B5E-4C2F-9085-6955BF153F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C46150C0-5777-42CC-B442-03E4DE45D719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C46150C0-5777-42CC-B442-03E4DE45D719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C46150C0-5777-42CC-B442-03E4DE45D719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C46150C0-5777-42CC-B442-03E4DE45D719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
