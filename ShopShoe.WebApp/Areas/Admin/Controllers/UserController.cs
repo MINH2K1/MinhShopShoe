@@ -2,16 +2,15 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ShopShoe.Application.Interface;
 using ShopShoe.Application.ViewModel.User;
+using ShopShoe.Domain.Enums;
+using ShopShoe.WebApp.Extension;
 
 namespace ShopShoe.WebApp.Areas.Admin.Controllers
 {
-
+    [Area("Admin")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-
-
-
         public UserController(IUserService userService )
         {
             _userService = userService;

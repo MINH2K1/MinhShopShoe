@@ -17,23 +17,23 @@ namespace ShopShoe.Domain.Entities
         public string Name { set; get; }
 
         [MaxLength(250)]
-        public string Description { set; get; }
+        public string? Description { set; get; }
 
         [MaxLength(250)]
         [Required]
         public string Image { set; get; }
 
         [MaxLength(250)]
-        public string Url { set; get; }
+        public string? Url { set; get; }
 
         public int? DisplayOrder { set; get; }
 
         public bool Status { set; get; }
 
-        public string Content { set; get; }
+        public string? Content { set; get; }
 
         [MaxLength(25)]
         [Required]
-        public string GroupAlias { get; set; }
+        public string ?GroupAlias { get; set; }
     }
 }

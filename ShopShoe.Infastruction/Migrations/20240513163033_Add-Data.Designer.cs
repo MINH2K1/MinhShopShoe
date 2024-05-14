@@ -12,8 +12,8 @@ using ShopShoe.Infastruction.DataEf;
 namespace ShopShoe.Infastruction.Migrations
 {
     [DbContext(typeof(ShopShoeDbContext))]
-    [Migration("20240510083525_AddInital")]
-    partial class AddInital
+    [Migration("20240513163033_Add-Data")]
+    partial class AddData
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -466,7 +466,8 @@ namespace ShopShoe.Infastruction.Migrations
             modelBuilder.Entity("ShopShoe.Domain.Entities.Function", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("IconCss")
                         .IsRequired()
@@ -873,6 +874,40 @@ namespace ShopShoe.Infastruction.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Slides");
+                });
+
+            modelBuilder.Entity("ShopShoe.Domain.Entities.SystemConfig", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Value2")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Value3")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Value4")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("Value5")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SystemConfigs");
                 });
 
             modelBuilder.Entity("ShopShoe.Domain.Entities.Tag", b =>

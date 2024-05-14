@@ -12,8 +12,8 @@ using ShopShoe.Infastruction.DataEf;
 namespace ShopShoe.Infastruction.Migrations
 {
     [DbContext(typeof(ShopShoeDbContext))]
-    [Migration("20240510082023_Add-Database")]
-    partial class AddDatabase
+    [Migration("20240514032321_inDatabase")]
+    partial class inDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -220,7 +220,6 @@ namespace ShopShoe.Infastruction.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Balance")
@@ -245,7 +244,6 @@ namespace ShopShoe.Infastruction.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -428,7 +426,6 @@ namespace ShopShoe.Infastruction.Migrations
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("Other")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
@@ -466,10 +463,10 @@ namespace ShopShoe.Infastruction.Migrations
             modelBuilder.Entity("ShopShoe.Domain.Entities.Function", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("IconCss")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -478,7 +475,6 @@ namespace ShopShoe.Infastruction.Migrations
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ParentId")
-                        .IsRequired()
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
 
@@ -673,7 +669,6 @@ namespace ShopShoe.Infastruction.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("HomeFlag")
@@ -683,30 +678,24 @@ namespace ShopShoe.Infastruction.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ParentId")
                         .HasColumnType("int");
 
                     b.Property<string>("SeoAlias")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoKeywords")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoPageTitle")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SortOrder")
@@ -729,7 +718,6 @@ namespace ShopShoe.Infastruction.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Caption")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -836,7 +824,6 @@ namespace ShopShoe.Infastruction.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Content")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -873,6 +860,39 @@ namespace ShopShoe.Infastruction.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Slides");
+                });
+
+            modelBuilder.Entity("ShopShoe.Domain.Entities.SystemConfig", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Value2")
+                        .HasColumnType("int");
+
+                    b.Property<bool?>("Value3")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("Value4")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal?>("Value5")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SystemConfigs");
                 });
 
             modelBuilder.Entity("ShopShoe.Domain.Entities.Tag", b =>

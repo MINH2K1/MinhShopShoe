@@ -21,6 +21,6 @@ namespace ShopShoe.Domain.Entities
         public decimal Price { get; set; }
 
         [ForeignKey("ProductId")]
-        public virtual Product Product { get; set; }
+        public virtual Product? Product { get; set; }
     }
 }

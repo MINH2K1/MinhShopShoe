@@ -9,13 +9,13 @@ using static ShopShoe.Infastruction.Extension.ModelBuilderExtensions;
 
 namespace ShopShoe.Infastruction.Configuration
 {
-    public class TagConfiguration : DbEntityConfiguration<Tag>
+    public class FunctionConfiguration : DbEntityConfiguration<Function>
     {
-        public override void Configure(EntityTypeBuilder<Tag> entity)
+        public override void Configure(EntityTypeBuilder<Function> entity)
         {
-            entity.Property(c => c.Id).HasMaxLength(50)
-                .IsRequired().IsUnicode(false);
+            entity.Property(c => c.Id).HasMaxLength(128)
+                .IsRequired();
+            
         }
     }
 }
-

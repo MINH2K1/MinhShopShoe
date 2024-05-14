@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ShopShoe.Infastruction.Migrations
 {
     /// <inheritdoc />
-    public partial class AddDatabase : Migration
+    public partial class AddData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -178,7 +178,7 @@ namespace ShopShoe.Infastruction.Migrations
                 name: "Functions",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     URL = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     ParentId = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
@@ -267,6 +267,24 @@ namespace ShopShoe.Infastruction.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SystemConfigs",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    Value1 = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Value2 = table.Column<int>(type: "int", nullable: true),
+                    Value3 = table.Column<bool>(type: "bit", nullable: true),
+                    Value4 = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Value5 = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Status = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SystemConfigs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Tags",
                 columns: table => new
                 {
@@ -336,11 +354,11 @@ namespace ShopShoe.Infastruction.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FunctionId = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
                     CanCreate = table.Column<bool>(type: "bit", nullable: false),
                     CanRead = table.Column<bool>(type: "bit", nullable: false),
                     CanUpdate = table.Column<bool>(type: "bit", nullable: false),
-                    CanDelete = table.Column<bool>(type: "bit", nullable: false)
+                    CanDelete = table.Column<bool>(type: "bit", nullable: false),
+                    FunctionId = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -696,6 +714,9 @@ namespace ShopShoe.Infastruction.Migrations
 
             migrationBuilder.DropTable(
                 name: "Slides");
+
+            migrationBuilder.DropTable(
+                name: "SystemConfigs");
 
             migrationBuilder.DropTable(
                 name: "WholePrices");

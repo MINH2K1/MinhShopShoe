@@ -16,9 +16,6 @@ namespace ShopShoe.Domain.Entities
         [Required]
         public Guid RoleId { get; set; }
 
-        [MaxLength(128)]
-        [Required]
-        public string FunctionId { get; set; }
 
         public bool CanCreate { set; get; }
         public bool CanRead { set; get; }
@@ -27,10 +24,19 @@ namespace ShopShoe.Domain.Entities
         public bool CanDelete { set; get; }
 
 
+
+
         [ForeignKey("RoleId")]
         public virtual AppRole AppRole { get; set; }
 
-        [ForeignKey("FunctionId")]
+
+
+
+        [MaxLength(128)]
+        [Required]
+        public string FunctionId { get; set; }
+
+     
         public virtual Function Function { get; set; }
     }
 }

@@ -14,12 +14,12 @@ namespace ShopShoe.Domain.Entities
         public int ProductId { get; set; }
 
         [MaxLength(50)]
-        public string TagId { set; get; }
+        public string ?TagId { set; get; }
 
         [ForeignKey("ProductId")]
         public virtual Product Product { set; get; }
 
         [ForeignKey("TagId")]
-        public virtual Tag Tag { set; get; }
+        public virtual Tag ?Tag { set; get; }
     }
 }

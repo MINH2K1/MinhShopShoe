@@ -10,6 +10,7 @@ namespace ShopShoe.Utilities.Dto
     {
         public GenericResult()
         {
+
         }
 
         public GenericResult(bool success)

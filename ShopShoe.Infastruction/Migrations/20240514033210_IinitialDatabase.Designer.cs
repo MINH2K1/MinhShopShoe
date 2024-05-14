@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopShoe.Infastruction.DataEf;
 
@@ -11,9 +12,11 @@ using ShopShoe.Infastruction.DataEf;
 namespace ShopShoe.Infastruction.Migrations
 {
     [DbContext(typeof(ShopShoeDbContext))]
-    partial class ShopShoeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240514033210_IinitialDatabase")]
+    partial class IinitialDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

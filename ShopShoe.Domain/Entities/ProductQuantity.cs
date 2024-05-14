@@ -28,9 +28,9 @@ namespace ShopShoe.Domain.Entities
         public virtual Product Product { get; set; }
 
         [ForeignKey("SizeId")]
-        public virtual Size Size { get; set; }
+        public virtual Size ?Size { get; set; }
 
         [ForeignKey("ColorId")]
-        public virtual Color Color { get; set; }
+        public virtual Color ?Color { get; set; }
     }
 }
