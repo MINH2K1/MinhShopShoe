@@ -28,9 +28,6 @@ namespace ShopShoe.Application.Interface
 
         List<ProductCategoryViewModel> GetHomeCategories(int top);
 
-
-
-
         void Save();
     }
 }

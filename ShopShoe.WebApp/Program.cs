@@ -14,6 +14,9 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 
 builder.Services.AddAutoMapper(o => o.AddProfile(new AutoMapperProfile() ));
 // Add services to the container.
@@ -72,19 +75,19 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-      name: "Admin",
-      pattern: "{Admin:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
-});
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+name: "Admin",
+pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+name: "default",
+pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
 
 using (var scope = app.Services.CreateScope())
 {

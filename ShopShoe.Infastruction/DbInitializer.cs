@@ -169,12 +169,15 @@ namespace ShopShoe.Infastruction
             {
                 List<Size> listSize = new List<Size>()
                 {
-                    new Size() { Name="XXL" },
-                    new Size() { Name="XL"},
-                    new Size() { Name="L" },
-                    new Size() { Name="M" },
-                    new Size() { Name="S" },
-                    new Size() { Name="XS" }
+                    new Size() { Name="43" },
+                    new Size() { Name="42" },
+                    new Size() { Name="41" },
+                    new Size() { Name="40" },
+                    new Size() { Name="39"},
+                    new Size() { Name="38" },
+                    new Size() { Name="37" },
+                    new Size() { Name="36" },
+                   
                 };
                 _context.Sizes.AddRange(listSize);
             }
