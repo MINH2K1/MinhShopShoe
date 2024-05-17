@@ -21,6 +21,14 @@
     {
       "library": "bootstrap-progressbar@0.9.0",
       "destination": "wwwroot/lib/bootstrap-progressbar/"
+    },
+    {
+      "library": "notify.js@3.0.0",
+      "destination": "wwwroot/lib/notify.js/"
+    },
+    {
+      "library": "bootbox.js@6.0.0",
+      "destination": "wwwroot/lib/bootbox.js/"
     }
   ]
 }
