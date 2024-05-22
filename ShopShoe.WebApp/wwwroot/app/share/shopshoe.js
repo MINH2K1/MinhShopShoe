@@ -41,11 +41,11 @@ var shopshoe = {
             message: message,
             buttons: {
                 confirm: {
-                    label: '??ng ý',
+                    label: "Agree',
                     className: 'btn-success'
                 },
                 cancel: {
-                    label: 'H?y',
+                    label: 'Cancel',
                     className: 'btn-danger'
                 }
             },

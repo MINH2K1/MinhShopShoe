@@ -1,0 +1,8 @@
+@ShopShoe.WebApi_HostAddress = http://localhost:5228
+
+
+##
+GET {{ShopShoe.WebApi_HostAddress}}/api/User
+Accept: application/json
+
+##
