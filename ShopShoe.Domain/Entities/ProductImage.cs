@@ -21,6 +21,6 @@ namespace ShopShoe.Domain.Entities
         public string Path { get; set; }
 
         [MaxLength(250)]
-        public string Caption { get; set; }
+        public string? Caption { get; set; }
     }
 }

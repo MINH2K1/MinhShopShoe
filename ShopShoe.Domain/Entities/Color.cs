@@ -20,6 +20,6 @@ namespace ShopShoe.Domain.Entities
         }
 
         [MaxLength(250)]
-        public string Code { get; set; }
+        public string? Code { get; set; }
     }
 }

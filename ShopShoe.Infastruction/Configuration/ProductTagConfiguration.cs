@@ -14,7 +14,7 @@ namespace ShopShoe.Infastruction.Configuration
         public override void Configure(EntityTypeBuilder<ProductTag> entity)
         {
             entity.Property(c => c.Id).HasMaxLength(50)
-                .IsRequired().IsUnicode(false).HasMaxLength(50);
+                .IsRequired().IsUnicode(false);
         }
     }
 }
