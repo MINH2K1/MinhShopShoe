@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShopShoe.Domain\ShopShoe.Domain.csproj" />
+    <ProjectReference Include="..\ShopShoe.Utilities\ShopShoe.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

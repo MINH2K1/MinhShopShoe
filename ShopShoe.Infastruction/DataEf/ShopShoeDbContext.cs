@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using ShopShoe.Domain.Entities;
 using ShopShoe.Domain.Interface;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ShopShoe.Infastruction.DataEf
 {
@@ -23,18 +25,20 @@ namespace ShopShoe.Infastruction.DataEf
 
         }
 
-        public DbSet<Function> Functions { get; set; }
+        public DbSet<SystemConfig> SystemConfigs { get; set; }
+        public DbSet<Domain.Entities.Function> Functions { get; set; }
 
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<Announcement> Announcements { set; get; }
         public DbSet<AnnouncementUser> AnnouncementUsers { set; get; }
 
-        public DbSet<Bill> Bills { set; get; }
+       public DbSet<Bill> Bills { set; get; }
         public DbSet<BillDetail> BillDetails { set; get; }
-      
+     
         public DbSet<Color> Colors { set; get; }
         public DbSet<Contact> Contacts { set; get; }
+    
         public DbSet<Footer> Footers { set; get; }
         public DbSet<Page> Pages { set; get; }
         public DbSet<Product> Products { set; get; }
@@ -51,6 +55,7 @@ namespace ShopShoe.Infastruction.DataEf
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<WholePrice> WholePrices { get; set; }
 
+   
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims").HasKey(x => x.Id);
@@ -68,6 +73,8 @@ namespace ShopShoe.Infastruction.DataEf
 
             builder.AddConfiguration(new ProductTagConfiguration());
             builder.AddConfiguration(new TagConfiguration());
+            builder.AddConfiguration(new FunctionConfiguration());
+
         }
         public override int SaveChanges()
         {
@@ -87,21 +94,16 @@ namespace ShopShoe.Infastruction.DataEf
             }
             return base.SaveChanges();
         }
+    }
 
+    public class ShopShoeContextFactory : IDesignTimeDbContextFactory<ShopShoeDbContext>
+    {
+        public ShopShoeDbContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<ShopShoeDbContext>();
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-4PH9VT2;Database=shopshoe;Integrated Security=True;Trust Server Certificate=True");
 
-        //public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ShopShoeDbContext>
-        //{
-        //    public ShopShoeDbContext CreateDbContext(string[] args)
-        //    {
-        //        IConfiguration configuration = new ConfigurationBuilder()
-        //            .SetBasePath(Directory.GetCurrentDirectory())
-        //            .AddJsonFile("appsettings.json").Build();
-        //        DbContextOptionsBuilder<ShopShoeDbContext> builder = new DbContextOptionsBuilder<ShopShoeDbContext>();
-        //        string connectionString = configuration.GetConnectionString("DefaultConnection");
-        //        builder.UseSqlServer(connectionString);
-        //        return new ShopShoeDbContext(builder.Options);
-        //    }
-        //}
-    //}
+            return new ShopShoeDbContext(optionsBuilder.Options);
+        }
     }
 }

@@ -24,15 +24,15 @@ namespace ShopShoe.Domain.Entities
         public int SizeId { get; set; }
 
         [ForeignKey("BillId")]
-        public virtual Bill Bill { set; get; }
+        public virtual Bill ?Bill { set; get; }
 
         [ForeignKey("ProductId")]
-        public virtual Product Product { set; get; }
+        public virtual Product? Product { set; get; }
 
         [ForeignKey("ColorId")]
-        public virtual Color Color { set; get; }
+        public virtual Color ?Color { set; get; }
 
         [ForeignKey("SizeId")]
-        public virtual Size Size { set; get; }
+        public virtual Size ?Size { set; get; }
     }
 }
