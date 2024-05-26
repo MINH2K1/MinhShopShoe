@@ -1,4 +1,4 @@
-﻿using ShopShoe.Application.ViewModel.Product;
+﻿using ShopShoe.Application.ViewModel.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;

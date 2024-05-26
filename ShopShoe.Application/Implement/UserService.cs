@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ShopShoe.Application.Interface;
-using ShopShoe.Application.ViewModel.User;
+using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Domain.Entities;
 using ShopShoe.Utilities.Dto;
 using System.Linq;

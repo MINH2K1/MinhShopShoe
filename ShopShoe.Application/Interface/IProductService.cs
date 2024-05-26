@@ -1,5 +1,4 @@
-﻿using ShopShoe.Application.ViewModel.Common;
-using ShopShoe.Application.ViewModel.Product;
+﻿using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Utilities.Dto;
 using System;
 using System.Collections.Generic;

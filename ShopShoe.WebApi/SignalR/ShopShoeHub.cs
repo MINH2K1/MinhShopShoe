@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using ShopShoe.Application.ViewModel.User;
+using ShopShoe.Application.ViewModel.Query;
 
 namespace ShopShoe.WebApi.SignalR
 {

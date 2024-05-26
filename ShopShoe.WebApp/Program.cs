@@ -14,10 +14,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-
-
+// AutoMapper configuration
 builder.Services.AddAutoMapper(o => o.AddProfile(new AutoMapperProfile() ));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -25,18 +22,6 @@ builder.Services.AddDbContext<ShopShoeDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") 
     ,o=>o.MigrationsAssembly("ShopShoe.Infastruction")));
 
-
-
-builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
-builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
-builder.Services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
-builder.Services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
-//Services
-
-builder.Services.AddTransient<IProductService, ProductService>();
-builder.Services.AddTransient<IUserService, UserService>();
-
-builder.Services.AddScoped<DbInitializer>();
 builder.Services.AddIdentity<AppUser, AppRole>(options =>
 {
     // Configure Identity options if needed
@@ -44,9 +29,15 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
   .AddEntityFrameworkStores<ShopShoeDbContext>() // Add EF Core store
   .AddDefaultTokenProviders();
 
-//builder.Services.AddTransient<IRoleService, RoleService>();
-//builder.Services.AddTransient<IBillService, BillService>();
+builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
+builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+builder.Services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
+builder.Services.AddTransient(typeof(IRepository<,>), typeof(Repository<,>));
 
+builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddTransient<IRoleService, RoleService>();
+//builder.Services.AddTransient<IBillService, BillService>();
 //builder.Services.AddTransient<ICommonService, CommonService>();
 //builder.Services.AddTransient<IContactService, ContactService>();
 //builder.Services.AddTransient<IPageService, PageService>();
@@ -55,12 +46,9 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 //builder.Services.AddTransient<IProductCategoryService, ProductCategoryService>();
 //builder.Services.AddTransient<IFunctionService, FunctionService>();
 
+builder.Services.AddScoped<DbInitializer>();
 
 var app = builder.Build();
-
-
-
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -69,15 +57,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
    
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
-//app.UseAuthorization();
-
-
 app.MapControllerRoute(
 name: "Admin",
 pattern: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
@@ -85,9 +68,6 @@ pattern: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
 app.MapControllerRoute(
 name: "default",
 pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
-
 
 using (var scope = app.Services.CreateScope())
 {
@@ -97,14 +77,10 @@ using (var scope = app.Services.CreateScope())
 
         var dbInitializer = services.GetService<DbInitializer>();
         dbInitializer.Seed().Wait();
-
-
     }
     catch (Exception ex)
     {
-
-        var logger = services.GetService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while seeding the database");
+        Console.WriteLine(ex);
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using ShopShoe.Domain.Abtraction.Interface;
 using ShopShoe.Domain.Enums;
-using ShopShoe.Domain.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,7 +32,8 @@ namespace ShopShoe.Domain.Entities
         public decimal Balance { get; set; }
 
         public string ?Avatar { get; set; }
-
+        public string? RefreshToken { get; set; }
+        public DateTime RefreshTokenExpiryTime { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
         public Status Status { get; set; }
