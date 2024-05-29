@@ -1,4 +1,6 @@
-﻿using ShopShoe.Application.ViewModel.User;
+﻿using ShopShoe.Application.ViewModel.Crud.Add;
+using ShopShoe.Application.ViewModel.Crud.Update;
+using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Utilities.Dto;
 using System;
 using System.Collections.Generic;
@@ -10,7 +12,11 @@ namespace ShopShoe.Application.Interface
 {
     public interface IRoleService
     {
-        Task<bool> AddAsync(AnnouncementViewModel announcement, List<AnnouncementUserViewModel> announcementUsers, AppRoleViewModel userVm);
+        Task<bool> AddAsync(AnnouncementViewModel announcement,
+            List<AnnouncementUserViewModel> announcementUsers,
+            AppRoleAddViewModel userVm);
+
+        Task UpdateAsync(AppRoleUpdateViewModel userVm);
 
         Task DeleteAsync(Guid id);
 
@@ -19,9 +25,6 @@ namespace ShopShoe.Application.Interface
         PagedResult<AppRoleViewModel> GetAllPagingAsync(string keyword, int page, int pageSize);
 
         Task<AppRoleViewModel> GetById(Guid id);
-
-
-        Task UpdateAsync(AppRoleViewModel userVm);
 
         List<PermissionViewModel> GetListFunctionWithRole(Guid roleId);
 

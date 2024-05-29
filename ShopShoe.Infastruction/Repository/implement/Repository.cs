@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShopShoe.Domain.BaseEntity;
+using ShopShoe.Domain.Abtraction;
 using ShopShoe.Infastruction.DataEf;
 using System;
 using System.Collections.Generic;

@@ -62,7 +62,7 @@ namespace ShopShoe.Infastruction
                     DateModified = DateTime.Now,
                     Status = Status.Active
                 }, "123654$Mn");
-                Console.WriteLine(x+" loicccccc");
+                
                 var user = await _userManager.FindByNameAsync("admin");
                 await _userManager.AddToRoleAsync(user, "Admin");
             }

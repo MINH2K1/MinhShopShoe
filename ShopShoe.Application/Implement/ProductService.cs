@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using OfficeOpenXml;
 using ShopShoe.Application.Interface;
-using ShopShoe.Application.ViewModel.Product;
+using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Domain.Entities;
 using ShopShoe.Domain.Enums;
 using ShopShoe.Infastruction.Repository.Interface;

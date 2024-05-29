@@ -1,6 +1,6 @@
-﻿using ShopShoe.Domain.BaseEntity;
+﻿using ShopShoe.Domain.Abtraction;
+using ShopShoe.Domain.Abtraction.Interface;
 using ShopShoe.Domain.Enums;
-using ShopShoe.Domain.Interface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

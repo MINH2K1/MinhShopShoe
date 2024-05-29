@@ -1,6 +1,4 @@
-﻿using ShopShoe.Domain.BaseEntity;
-using ShopShoe.Domain.Enums;
-using ShopShoe.Domain.Interface;
+﻿using ShopShoe.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,6 +6,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ShopShoe.Domain.Abtraction;
+using ShopShoe.Domain.Abtraction.Interface;
 
 namespace ShopShoe.Domain.Entities
 {

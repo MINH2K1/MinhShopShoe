@@ -13,6 +13,14 @@ namespace ShopShoe.Domain.Entities
    public class AppRole : IdentityRole<Guid>
     {
         [MaxLength(250)]
-        public string ?Description { get; set; }
+        public string? Description { get; set; }
+        public   AppRole() { }
+       public AppRole(string name, string de)
+        {
+            Name = Name;
+            Description= de;
+        }
+       
+
     }
 }

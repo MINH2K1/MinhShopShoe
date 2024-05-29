@@ -1,4 +1,4 @@
-﻿using ShopShoe.Domain.BaseEntity;
+﻿using ShopShoe.Domain.Abtraction;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
