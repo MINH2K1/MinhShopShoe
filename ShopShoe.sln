@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopShoe.Application.UnitTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopShoe.WebApi", "ShopShoe.WebApi\ShopShoe.WebApi.csproj", "{325BA6DA-2022-4CF0-9D82-632BED4B3AC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopShoe.WebApi.UnitTest", "ShopShoe.WebApi.UnitTest\ShopShoe.WebApi.UnitTest.csproj", "{61C94E24-A8F5-433E-90DC-96A9902007BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopShoe.WebApi.UnitTest", "ShopShoe.WebApi.UnitTest\ShopShoe.WebApi.UnitTest.csproj", "{61C94E24-A8F5-433E-90DC-96A9902007BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

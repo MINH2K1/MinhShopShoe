@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShopShoe.Application.Implement;
 using ShopShoe.Application.Interface;
-using ShopShoe.Application.ViewModel.User;
+using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Utilities.Dto;
 
 namespace ShopShoe.WebApi.Controllers
 {
     [ApiController]
     [Route("api/user")]
+    [Authorize]
     public class UserController : Controller
     {
         private readonly IUserService _userService;

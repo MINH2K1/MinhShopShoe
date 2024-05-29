@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using ShopShoe.Application.ViewModel.Common;
-using ShopShoe.Application.ViewModel.Product;
-using ShopShoe.Application.ViewModel.User;
+using ShopShoe.Application.ViewModel.Crud.Add;
+using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -21,7 +20,7 @@ namespace ShopShoe.Application.AutoMapper
 
             CreateMap<Function, FunctionViewModel>();
             CreateMap<AppUser, AppUserViewModel>();
-            CreateMap<AppRole, AppRoleViewModel>();
+            CreateMap<AppRole, AppRoleAddViewModel>();
             CreateMap<Bill, BillViewModel>();
             CreateMap<BillDetail, BillDetailViewModel>();
             CreateMap<Color, ColorViewModel>();
@@ -29,13 +28,6 @@ namespace ShopShoe.Application.AutoMapper
             CreateMap<ProductQuantity, ProductQuantityViewModel>().MaxDepth(2);
             CreateMap<ProductImage, ProductImageViewModel>().MaxDepth(2);
             CreateMap<WholePrice, WholePriceViewModel>().MaxDepth(2);
-
-         
-            CreateMap<Slide, SlideViewModel>().MaxDepth(2);
-    
-            CreateMap<Footer, FooterViewModel>().MaxDepth(2);
-            CreateMap<Contact, ContactViewModel>().MaxDepth(2);
-            CreateMap<Page, PageViewModel>().MaxDepth(2);
         }
     }
 }

@@ -1,15 +1,9 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using ShopShoe.Application.Interface;
-using ShopShoe.Application.ViewModel.Product;
+using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Domain.Entities;
 using ShopShoe.Domain.Enums;
 using ShopShoe.Infastruction.Repository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static ShopShoe.Infastruction.Repository.Interface.IRepository;
 
 namespace ShopShoe.Application.Implement
@@ -76,14 +70,6 @@ namespace ShopShoe.Application.Implement
                   .Take(top));
 
             var categories = query.ToList();
-            foreach (var category in categories)
-            {
-                //category.Products = _productRepository
-                //    .FindAll(x => x.HotFlag == true && x.CategoryId == category.Id)
-                //    .OrderByDescending(x => x.DateCreated)
-                //    .Take(5)
-                //    .ProjectTo<ProductViewModel>().ToList();
-            }
             return categories;
         }
 

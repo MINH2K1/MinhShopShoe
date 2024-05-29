@@ -5,9 +5,9 @@ using OfficeOpenXml.Table;
 using OfficeOpenXml;
 using ShopShoe.Application.Implement;
 using ShopShoe.Application.Interface;
-using ShopShoe.Application.ViewModel.Product;
 using ShopShoe.Utilities.Helper;
 using Microsoft.Net.Http.Headers;
+using ShopShoe.Application.ViewModel.Query;
 
 namespace ShopShoe.WebApi.Controllers
 {

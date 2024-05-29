@@ -1,4 +1,4 @@
-﻿using ShopShoe.Application.ViewModel.User;
+﻿using ShopShoe.Application.ViewModel.Query;
 using ShopShoe.Utilities.Dto;
 using System;
 using System.Collections.Generic;
